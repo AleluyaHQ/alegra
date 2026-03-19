@@ -4,7 +4,7 @@ module PruebasResponses
        username: nil,
        name: nil,
        last_name: nil,
-       email: 'info@quincena.me',
+       email: ENV.fetch('ALEGRA_USERNAME', 'test@example.com'),
        phone: nil,
        role: 'admin',
        status: 'active',
