@@ -6,8 +6,8 @@ describe Alegra::Users do
   context 'User' do
     before :each do
       @params = {
-        username: 'info@quincena.me',
-        apikey: '066b3ab09e72d4548e88'
+        username: ENV.fetch('ALEGRA_USERNAME', 'test@example.com'),
+        apikey: ENV.fetch('ALEGRA_API_KEY', 'test_api_key')
       }
       @client = Alegra::Client.new(@params[:username], @params[:apikey])
     end
@@ -42,7 +42,7 @@ describe Alegra::Users do
            username: nil,
            name: nil,
            last_name: nil,
-           email: 'info@quincena.me',
+           email: 'test@example.com',
            phone: nil,
            role: 'admin',
            status: 'active',
@@ -206,7 +206,7 @@ describe Alegra::Users do
          :username=>nil,
          :name=>nil,
          :last_name=>nil,
-         :email=>"info@quincena.me",
+         :email=>"test@example.com",
          :phone=>nil,
          :role=>"admin",
          :status=>"active",

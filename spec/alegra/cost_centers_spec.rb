@@ -7,7 +7,7 @@ describe Alegra::CostCenters do
     before :each do
       @params = {
         username: 'ejemplo@ejemplo.com',
-        apikey: '066b3ab09e72d4548e88'
+        apikey: ENV.fetch('ALEGRA_API_KEY', 'test_api_key')
       }
       @client = Alegra::Client.new(@params[:username], @params[:apikey])
     end
