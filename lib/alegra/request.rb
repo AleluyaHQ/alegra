@@ -6,7 +6,9 @@ module Alegra
     def initialize(host, path, token = nil)
       @token = token
       @path = path
-      @session = Faraday.new url: host
+      @session = Faraday.new(url: host) do |conn|
+        conn.adapter :net_http
+      end
     end
 
     def get(url, attrs = {}, options = { format: :formated })
